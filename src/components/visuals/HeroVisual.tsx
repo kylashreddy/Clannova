@@ -47,7 +47,7 @@ function HexFallback({ hidden }: { hidden?: boolean }) {
   );
 }
 
-export function HeroVisual() {
+export function HeroVisual({ ambient }: { ambient?: boolean }) {
   const reduce = useReducedMotion() ?? false;
   const [mode, setMode] = useState<"pending" | "webgl" | "static">("pending");
   const [ready, setReady] = useState(false);
@@ -67,11 +67,11 @@ export function HeroVisual() {
   }, [mode]);
 
   return (
-    <div className="relative aspect-square w-full">
-      <HexFallback hidden={mode === "webgl" && ready} />
+    <div className={ambient ? "absolute inset-0" : "relative aspect-square w-full"}>
+      {!ambient && <HexFallback hidden={mode === "webgl" && ready} />}
       {mode === "webgl" && (
         <div className={`absolute inset-0 transition-opacity duration-1000 ${ready ? "opacity-100" : "opacity-0"}`}>
-          <HeroScene reduceMotion={reduce} />
+          <HeroScene reduceMotion={reduce} ambient={ambient} />
         </div>
       )}
     </div>

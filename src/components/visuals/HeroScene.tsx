@@ -205,7 +205,7 @@ function Core({ animate }: { animate: boolean }) {
   );
 }
 
-function Rig({ animate, children }: { animate: boolean; children: React.ReactNode }) {
+function Rig({ animate, children, subtle }: { animate: boolean; children: React.ReactNode; subtle?: boolean }) {
   const group = useRef<THREE.Group>(null);
   const pointer = useRef({ x: 0, y: 0 });
   const { size } = useThree();
@@ -222,17 +222,40 @@ function Rig({ animate, children }: { animate: boolean; children: React.ReactNod
   useFrame(({ clock }) => {
     if (!group.current) return;
     const t = animate ? clock.getElapsedTime() : 0;
-    const tx = pointer.current.y * 0.25 + Math.sin(t * 0.3) * 0.06;
-    const ty = pointer.current.x * 0.35 + Math.sin(t * 0.2) * 0.1;
+    const k = subtle ? 0.25 : 1;
+    const tx = (pointer.current.y * 0.25 + Math.sin(t * 0.3) * 0.06) * k;
+    const ty = (pointer.current.x * 0.35 + Math.sin(t * 0.2) * 0.1) * k;
     group.current.rotation.x += (tx - group.current.rotation.x) * 0.05;
     group.current.rotation.y += (ty - group.current.rotation.y) * 0.05;
   });
 
-  const scale = size.width < 520 ? 0.78 : 1;
+  const scale = (size.width < 520 ? 0.78 : 1) * (subtle ? Math.max(1, size.width / size.height) * 0.62 : 1);
   return (
     <group ref={group} scale={scale}>
       {children}
     </group>
+  );
+}
+
+function AmbientFrames({ animate }: { animate: boolean }) {
+  const refs = useRef<(THREE.Group | null)[]>([]);
+  const rings = [
+    { r: 2.3, o: 0.55, speed: 0.04 },
+    { r: 3.0, o: 0.3, speed: -0.025 },
+    { r: 3.8, o: 0.16, speed: 0.015 },
+  ];
+  useFrame((_, dt) => {
+    if (!animate) return;
+    refs.current.forEach((g, i) => g && (g.rotation.z += dt * rings[i].speed));
+  });
+  return (
+    <>
+      {rings.map((ring, i) => (
+        <group key={ring.r} ref={(g) => { refs.current[i] = g; }}>
+          <HexFrame radius={ring.r} width={0.014} depth={0.01} opacity={ring.o} />
+        </group>
+      ))}
+    </>
   );
 }
 
@@ -257,7 +280,7 @@ function Frames({ animate }: { animate: boolean }) {
   );
 }
 
-export default function HeroScene({ reduceMotion }: { reduceMotion: boolean }) {
+export default function HeroScene({ reduceMotion, ambient }: { reduceMotion: boolean; ambient?: boolean }) {
   const wrap = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(true);
 
@@ -280,11 +303,18 @@ export default function HeroScene({ reduceMotion }: { reduceMotion: boolean }) {
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         frameloop={!animate ? "demand" : inView ? "always" : "never"}
       >
-        <Rig animate={animate}>
-          <Network animate={animate} />
-          <Frames animate={animate} />
-          <Core animate={animate} />
-        </Rig>
+        {ambient ? (
+          <Rig animate={animate} subtle>
+            <Network animate={animate} />
+            <AmbientFrames animate={animate} />
+          </Rig>
+        ) : (
+          <Rig animate={animate}>
+            <Network animate={animate} />
+            <Frames animate={animate} />
+            <Core animate={animate} />
+          </Rig>
+        )}
         <Stream animate={animate} />
       </Canvas>
     </div>

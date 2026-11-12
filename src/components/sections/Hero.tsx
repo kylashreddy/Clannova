@@ -20,10 +20,8 @@ export function Hero() {
     <section id="home" aria-labelledby="hero-title" className="relative px-3 pt-[calc(var(--nav-h)-60px)] sm:px-4">
       {/* Cinematic panel: the 3D composition sits behind centred copy */}
       <div className="relative isolate flex min-h-[calc(100svh-24px)] flex-col items-center justify-center overflow-hidden rounded-[28px] border border-line bg-[radial-gradient(120%_80%_at_50%_0%,#0f1a2e_0%,#070a12_60%)] px-4 pb-16 pt-32 text-center sm:rounded-[36px] sm:pt-40">
-        <div aria-hidden className="absolute inset-0 -z-10 flex items-center justify-center opacity-55">
-          <div className="w-[min(1100px,140vw)]">
-            <HeroVisual />
-          </div>
+        <div aria-hidden className="absolute inset-0 -z-10 opacity-80">
+          <HeroVisual ambient />
         </div>
         <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_50%_40%_at_50%_55%,rgb(7_10_18/0.9),transparent_80%)]" />
         <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-[#070a12] to-transparent" />
