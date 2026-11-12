@@ -237,28 +237,6 @@ function Rig({ animate, children, subtle }: { animate: boolean; children: React.
   );
 }
 
-function AmbientFrames({ animate }: { animate: boolean }) {
-  const refs = useRef<(THREE.Group | null)[]>([]);
-  const rings = [
-    { r: 2.3, o: 0.55, speed: 0.04 },
-    { r: 3.0, o: 0.3, speed: -0.025 },
-    { r: 3.8, o: 0.16, speed: 0.015 },
-  ];
-  useFrame((_, dt) => {
-    if (!animate) return;
-    refs.current.forEach((g, i) => g && (g.rotation.z += dt * rings[i].speed));
-  });
-  return (
-    <>
-      {rings.map((ring, i) => (
-        <group key={ring.r} ref={(g) => { refs.current[i] = g; }}>
-          <HexFrame radius={ring.r} width={0.014} depth={0.01} opacity={ring.o} />
-        </group>
-      ))}
-    </>
-  );
-}
-
 function Frames({ animate }: { animate: boolean }) {
   const a = useRef<THREE.Group>(null);
   const b = useRef<THREE.Group>(null);
@@ -306,7 +284,6 @@ export default function HeroScene({ reduceMotion, ambient }: { reduceMotion: boo
         {ambient ? (
           <Rig animate={animate} subtle>
             <Network animate={animate} />
-            <AmbientFrames animate={animate} />
           </Rig>
         ) : (
           <Rig animate={animate}>
