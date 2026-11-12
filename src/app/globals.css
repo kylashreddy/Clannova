@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/* ---------- CLANNOVA brand tokens ---------- */
+:root {
+  --c-space: #080d19;
+  --c-navy: #101b2c;
+  --c-cyan: #39d5ff;
+  --c-violet: #9b7bff;
+  --c-ice: #e8f0fc;
+  --c-steel: #8493aa;
+  --c-slate: #182438;
+
+  --c-line: rgb(232 240 252 / 0.08);
+  --c-line-strong: rgb(232 240 252 / 0.14);
+  --gradient-brand: linear-gradient(100deg, var(--c-cyan) 0%, var(--c-violet) 100%);
+
+  --nav-h: 76px;
+}
+
+@theme inline {
+  --color-space: var(--c-space);
+  --color-navy: var(--c-navy);
+  --color-cyan: var(--c-cyan);
+  --color-violet: var(--c-violet);
+  --color-ice: var(--c-ice);
+  --color-steel: var(--c-steel);
+  --color-slate: var(--c-slate);
+  --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@utility container-x {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+@utility text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-brand {
+  background-image: var(--gradient-brand);
+}
+
+/* Section rhythm */
+@utility section-y {
+  padding-block: clamp(5rem, 11vw, 9rem);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-cyan);
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3rem, 9.5vw, 8.25rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.25rem, 5.4vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+@utility display-md {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+/* Hairline grid used as a quiet backdrop */
+@utility grid-backdrop {
+  background-image:
+    linear-gradient(var(--c-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-line) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* ---------- Base ---------- */
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 8px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--c-space);
+  color: var(--c-ice);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgb(57 213 255 / 0.3);
+  color: var(--c-ice);
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-cyan);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Native form controls on dark */
+select option {
+  background: var(--c-navy);
+  color: var(--c-ice);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rise {
+  from { transform: scaleY(0.25); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes caret {
+  50% { opacity: 0; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
