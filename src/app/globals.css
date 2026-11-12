@@ -2,7 +2,7 @@
 
 /* ---------- CLANNOVA brand tokens ---------- */
 :root {
-  --c-space: #080d19;
+  --c-space: #070a12;
   --c-navy: #101b2c;
   --c-cyan: #39d5ff;
   --c-violet: #9b7bff;
@@ -10,11 +10,16 @@
   --c-steel: #8493aa;
   --c-slate: #182438;
 
-  --c-line: rgb(232 240 252 / 0.08);
-  --c-line-strong: rgb(232 240 252 / 0.14);
+  --c-line: rgb(255 255 255 / 0.07);
+  --c-line-strong: rgb(255 255 255 / 0.13);
+  --c-surface: rgb(255 255 255 / 0.03);
   --gradient-brand: linear-gradient(100deg, var(--c-cyan) 0%, var(--c-violet) 100%);
 
-  --nav-h: 76px;
+  --nav-h: 84px;
+}
+
+@media (min-width: 640px) {
+  :root { --nav-h: 112px; }
 }
 
 @theme inline {
@@ -27,6 +32,7 @@
   --color-slate: var(--c-slate);
   --color-line: var(--c-line);
   --color-line-strong: var(--c-line-strong);
+  --color-surface: var(--c-surface);
 
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -59,35 +65,50 @@
 }
 
 @utility eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--c-cyan);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--c-line-strong);
+  border-radius: 9999px;
+  padding: 0.375rem 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--c-ice);
+  background: var(--c-surface);
+}
+
+/* Large headings fade softly toward the baseline */
+@utility text-fade {
+  background: linear-gradient(180deg, #f4f7fc 30%, rgb(232 240 252 / 0.55) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @utility display-xl {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(3rem, 9.5vw, 8.25rem);
-  line-height: 0.9;
-  letter-spacing: -0.035em;
+  font-weight: 500;
+  font-size: clamp(3rem, 8.6vw, 7.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
 }
 
 @utility display-lg {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(2.25rem, 5.4vw, 4.5rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-weight: 500;
+  font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
 }
 
 @utility display-md {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
 }
 
 /* Hairline grid used as a quiet backdrop */

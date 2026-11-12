@@ -49,6 +49,7 @@ export function Services() {
           eyebrow="Services"
           title="Everything your business needs to move forward."
           intro="Four focused divisions, one team. Start with what matters most today and add the rest as you grow."
+          align="center"
         />
 
         <div className="mt-16 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
@@ -109,7 +110,7 @@ export function Services() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={reduce ? { opacity: 0 } : { opacity: 0, y: -12 }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-3xl border border-line bg-navy/40 p-5 sm:p-8"
+                className="rounded-[28px] border border-line bg-surface p-5 sm:p-8"
               >
                 <div className="grid gap-8 xl:grid-cols-[1fr_1fr]">
                   <div className="order-2 xl:order-1">

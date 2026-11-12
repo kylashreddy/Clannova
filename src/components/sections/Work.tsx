@@ -8,7 +8,7 @@ import { WorkVisual } from "../visuals/WorkVisuals";
 export function Work() {
   const [feature, ...rest] = workProjects;
   return (
-    <section id="work" aria-labelledby="work-title" className="section-y relative border-t border-line bg-navy/30">
+    <section id="work" aria-labelledby="work-title" className="section-y relative border-t border-line bg-white/[0.012]">
       <div className="container-x">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
@@ -36,7 +36,7 @@ export function Work() {
             >
               <article
                 className={cn(
-                  "group relative grid h-full overflow-hidden rounded-3xl border border-line bg-space/60 transition-colors duration-500 hover:border-cyan/30",
+                  "group relative grid h-full overflow-hidden rounded-[28px] border border-line bg-space/60 transition-colors duration-500 hover:border-cyan/30",
                   i === 0 && "lg:grid-cols-[0.9fr_1.1fr]",
                 )}
               >

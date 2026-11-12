@@ -39,7 +39,7 @@ export default async function ServicePage({ params }: PageProps<"/services/[slug
               </li>
             ))}
           </ul>
-          <div className="mt-10 rounded-2xl border border-line bg-navy/50 p-6">
+          <div className="mt-10 rounded-2xl border border-line bg-surface p-6">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-steel">{s.useCase.label}</p>
             <p className="mt-2 leading-relaxed text-ice">{s.useCase.text}</p>
           </div>

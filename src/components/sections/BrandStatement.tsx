@@ -6,8 +6,8 @@ export function BrandStatement() {
   return (
     <section id="about" aria-labelledby="about-title" className="section-y relative">
       <div className="container-x">
-        <p className="eyebrow flex items-center gap-3">
-          <span aria-hidden className="h-px w-8 bg-cyan/70" />
+        <p className="eyebrow">
+          <span aria-hidden className="size-1.5 rounded-full bg-cyan" />
           About CLANNOVA
         </p>
         <h2 id="about-title" className="mt-8 max-w-5xl font-display text-[clamp(2.25rem,6vw,5.25rem)] font-semibold leading-[1.02] tracking-[-0.03em]">

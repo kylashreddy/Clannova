@@ -108,7 +108,7 @@ export function Industries() {
   };
 
   return (
-    <section id="industries" aria-labelledby="industries-title" className="section-y relative overflow-hidden border-t border-line bg-navy/30">
+    <section id="industries" aria-labelledby="industries-title" className="section-y relative overflow-hidden border-t border-line bg-white/[0.012]">
       <div aria-hidden className="grid-backdrop absolute inset-0 -z-10 opacity-60 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
       <div className="container-x">
         <SectionHeading
@@ -116,12 +116,13 @@ export function Industries() {
           eyebrow="Industry solutions"
           title="Your industry. Your challenges. Our solutions."
           intro="Every sector has its own bottlenecks. Pick yours to see the problems we usually solve and the systems we would put in place."
+          align="center"
         />
 
         <div
           role="tablist"
           aria-label="Industries"
-          className="-mx-4 mt-12 flex gap-2 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:px-0"
+          className="-mx-4 mt-12 flex gap-2 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:justify-center sm:px-0"
         >
           {industries.map((ind, i) => {
             const Icon = icons[ind.id];
@@ -139,7 +140,7 @@ export function Industries() {
                 onKeyDown={(e) => onKey(e, i)}
                 className={cn(
                   "flex shrink-0 items-center gap-2 rounded-full border px-4 py-2.5 text-sm transition-all duration-300",
-                  on ? "border-cyan/60 bg-cyan/10 text-ice" : "border-line text-steel hover:border-line-strong hover:text-ice",
+                  on ? "border-white/25 bg-white/[0.08] text-ice" : "border-line text-steel hover:border-line-strong hover:text-ice",
                 )}
               >
                 <Icon aria-hidden className={cn("size-4", on ? "text-cyan" : "")} />

@@ -23,8 +23,9 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden border-t border-line">
-      <div className="container-x pt-20">
+    <footer className="relative px-3 pb-3 sm:px-4 sm:pb-4">
+      <div className="mx-auto overflow-hidden rounded-[28px] border border-line bg-[radial-gradient(100%_60%_at_50%_100%,#101b2c_0%,#070a12_70%)] px-[clamp(1rem,4vw,2.5rem)] pt-20 sm:rounded-[36px]">
+      <div className="mx-auto max-w-[1160px]">
         <div className="grid gap-14 lg:grid-cols-[1fr_2fr]">
           <div>
             <Link href="/#home" aria-label="CLANNOVA home" className="block w-full max-w-[240px]">
@@ -53,8 +54,8 @@ export function Footer() {
           </div>
         </div>
 
-        <p aria-hidden className="mt-24 select-none text-center font-display text-[clamp(2.5rem,11vw,10rem)] font-semibold leading-none tracking-[-0.04em]">
-          <span className="bg-gradient-to-b from-ice to-ice/10 bg-clip-text text-transparent">BUILD BEYOND </span>
+        <p aria-hidden className="mt-24 select-none text-center font-display text-[clamp(2.25rem,9.5vw,8.5rem)] font-medium leading-none tracking-[-0.055em]">
+          <span className="text-fade">BUILD BEYOND </span>
           <span className="text-gradient">LIMITS.</span>
         </p>
         <p className="sr-only">BUILD BEYOND LIMITS.</p>
@@ -91,6 +92,7 @@ export function Footer() {
             <p className="font-mono">Social profiles launching soon</p>
           )}
         </div>
+      </div>
       </div>
     </footer>
   );

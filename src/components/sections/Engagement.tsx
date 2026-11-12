@@ -7,7 +7,7 @@ import { SectionHeading } from "../ui/SectionHeading";
 
 export function Engagement() {
   return (
-    <section id="engagement" aria-labelledby="engagement-title" className="section-y relative border-t border-line bg-navy/30">
+    <section id="engagement" aria-labelledby="engagement-title" className="section-y relative border-t border-line bg-white/[0.012]">
       <div className="container-x">
         <SectionHeading
           id="engagement-title"
@@ -23,7 +23,7 @@ export function Engagement() {
               <Reveal as="li" key={m.id} delay={0.06 * i}>
                 <article
                   className={cn(
-                    "relative flex h-full flex-col rounded-3xl border p-7 sm:p-9",
+                    "relative flex h-full flex-col rounded-[28px] border p-7 sm:p-9",
                     featured ? "border-cyan/40 bg-[linear-gradient(180deg,rgb(57_213_255/0.08),transparent_60%)]" : "border-line bg-space/50",
                   )}
                 >

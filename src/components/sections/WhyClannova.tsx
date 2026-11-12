@@ -17,7 +17,7 @@ export function WhyClannova() {
             intro="We are a small, senior team. You work directly with the people designing and building your product, from first call to long after launch."
           />
         </div>
-        <ul className="grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2">
+        <ul className="grid gap-px overflow-hidden rounded-[28px] border border-line bg-line sm:grid-cols-2">
           {principles.map((p, i) => {
             const Icon = icons[i];
             return (

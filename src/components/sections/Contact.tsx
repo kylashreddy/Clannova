@@ -205,11 +205,11 @@ export function Contact() {
       <div aria-hidden className="absolute -left-40 top-20 -z-10 size-[600px] rounded-full bg-[radial-gradient(circle,rgb(57_213_255/0.1),transparent_60%)] blur-2xl" />
       <div className="container-x grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <Reveal className="lg:sticky lg:top-28 lg:self-start">
-          <p className="eyebrow flex items-center gap-3">
-            <span aria-hidden className="h-px w-8 bg-cyan/70" />
+          <p className="eyebrow">
+            <span aria-hidden className="size-1.5 rounded-full bg-cyan" />
             Contact
           </p>
-          <h2 id="contact-title" className="display-lg mt-5">
+          <h2 id="contact-title" className="display-lg text-fade mt-6 pb-1">
             Let&apos;s build <span className="text-gradient">what&apos;s next.</span>
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-steel">
@@ -250,7 +250,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="relative rounded-3xl border border-line bg-navy/50 p-5 sm:p-9">
+          <div className="relative rounded-[28px] border border-line bg-surface p-5 sm:p-9">
             <AnimatePresence mode="wait" initial={false}>
               {status.kind === "success" ? (
                 <motion.div

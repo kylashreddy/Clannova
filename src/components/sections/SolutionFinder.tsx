@@ -167,7 +167,7 @@ export function SolutionFinder() {
             </ol>
           </div>
 
-          <div className="rounded-3xl border border-line bg-navy/50 p-5 sm:p-8">
+          <div className="rounded-[28px] border border-line bg-surface p-5 sm:p-8">
             <div className="mb-8 flex items-center gap-3" aria-hidden>
               {[0, 1, 2, 3].map((i) => (
                 <span key={i} className="h-1 flex-1 overflow-hidden rounded-full bg-slate">

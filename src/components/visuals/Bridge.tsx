@@ -15,7 +15,7 @@ const pairs = [
 export function Bridge() {
   const [active, setActive] = useState(0);
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-line bg-navy/50 p-6 sm:p-8">
+    <div className="relative overflow-hidden rounded-[28px] border border-line bg-surface p-6 sm:p-8">
       <div className="mb-6 grid grid-cols-[1fr_auto_1fr] items-center gap-4 font-mono text-[11px] uppercase tracking-[0.2em] text-steel">
         <span>Business need</span>
         <span aria-hidden className="w-8" />

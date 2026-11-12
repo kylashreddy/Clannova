@@ -29,7 +29,7 @@ export default async function IndustryPage({ params }: PageProps<"/industries/[s
       <h2 className="display-md">The solution stack</h2>
       <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {i.stack.map((st, n) => (
-          <li key={st} className="rounded-2xl border border-line bg-navy/40 p-6">
+          <li key={st} className="rounded-2xl border border-line bg-surface p-6">
             <span className="font-mono text-xs text-cyan">0{n + 1}</span>
             <span className="mt-3 block font-display text-xl font-semibold">{st}</span>
           </li>
